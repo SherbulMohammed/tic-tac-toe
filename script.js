@@ -1,5 +1,10 @@
-function Gameboard() {
-    const rows = 3;
-    const columns = 3;
-    const board = [];
-}
+// player symbols
+const player_x = 'X';
+const player_o = 'O';
+
+// Define the Tic Tac Toe board
+let board = [
+    ['', '', ''],
+    ['', '', ''],
+    ['', '', '']
+]
