@@ -23,11 +23,32 @@
     cursor: pointer;
 }
 
-#reset-button {
+#playerNames {
+    display: flex;
+    justify-content: center;
+}
+
+#playerNames input[type="text"] {
+    margin: 0 15px; /* Adjust the margin as needed */
+}
+
+
+#startButton {
     margin-top: 25px;
     padding: 10px 20px;
     font-size: 1rem;
     background-color: #4CAF50;
+    color: black;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+#resetButton {
+    margin-top: 25px;
+    padding: 10px 20px;
+    font-size: 1rem;
+    background-color: orange;
     color: black;
     border: none;
     border-radius: 5px;
