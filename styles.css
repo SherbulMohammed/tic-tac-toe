@@ -2,6 +2,10 @@
     text-align: center;
 }
 
+*, *::after, *::before {
+    box-sizing: border-box;  /* 'x' and 'o' both same size */
+}
+
 .board {
     display: grid;
     grid-template-columns: repeat(3, auto);
@@ -19,6 +23,7 @@
     align-items: center;
     justify-content: center;
     cursor: pointer;
+    position: relative; 
 }
 
 .grid:first-child,
@@ -43,6 +48,46 @@
 }
 
 
+/* Styling for the 'X' shape */
+.grid.x::before,
+.grid.x::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 70%; /* Length of the lines */
+    height: 10px; /* Thickness of the lines */
+    background-color: black; /* Color of the lines */
+    transform-origin: center;
+}
+
+.grid.x::before {
+    transform: translate(-50%, -50%) rotate(45deg);
+}
+
+.grid.x::after {
+    transform: translate(-50%, -50%) rotate(-45deg);
+}
+
+/* Styling for the 'O' shape */
+.grid.o {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.grid.o::before {
+    content: '';
+    width: 70%; /* Same size as 'X' */
+    height: 70%; /* Same size as 'X' */
+    border: 10px solid red; /* Thickness and color of the circle */
+    border-radius: 50%; /* Makes it a circle */
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
 
 /*button styling*/
 
