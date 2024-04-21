@@ -47,47 +47,99 @@
     border-bottom: none;
 }
 
+.grid.x,
+.grid.o {
+    cursor: not-allowed;
+}
 
-/* Styling for the 'X' shape */
 .grid.x::before,
 .grid.x::after {
+    background-color: black; /* Color of the lines */
+}
+
+.grid.o::before,
+.grid.o::after {
+    border: 10px solid black;
+}
+
+
+.board.x .grid:not(.x):not(.o):hover::before,
+.board.x .grid:not(.x):not(.o):hover::after{
+    background-color: lightgrey;
+}
+
+.board.o .grid:not(.x):not(.o):hover::before,
+.board.o .grid:not(.x):not(.o):hover::after {
+    border: 10px solid lightgrey;
+}
+
+
+
+
+                   
+/* Styling for the 'X' shape */
+
+.grid.x::before,
+.grid.x::after,
+.board.x .grid:not(.x):not(.o):hover::before,
+.board.x .grid:not(.x):not(.o):hover::after {
     content: '';
     position: absolute;
     top: 50%;
     left: 50%;
     width: 70%; /* Length of the lines */
     height: 10px; /* Thickness of the lines */
-    background-color: black; /* Color of the lines */
     transform-origin: center;
 }
 
-.grid.x::before {
+.grid.x::before,
+.board.x .grid:not(.x):not(.o):hover::before {
     transform: translate(-50%, -50%) rotate(45deg);
 }
 
-.grid.x::after {
+.grid.x::after,
+.board.x .grid:not(.x):not(.o):hover::after {
     transform: translate(-50%, -50%) rotate(-45deg);
 }
 
+
 /* Styling for the 'O' shape */
-.grid.o {
+
+.grid.o::before,
+.grid.o::after,
+.board.o .grid:not(.x):not(.o):hover::before,
+.board.o .grid:not(.x):not(.o):hover::after {
     position: relative;
     display: flex;
     align-items: center;
     justify-content: center;
+    position: absolute;
+    
 }
 
-.grid.o::before {
+.grid.o::before,
+.board.o .grid:not(.x):not(.o):hover::before {
     content: '';
     width: 70%; /* Same size as 'X' */
     height: 70%; /* Same size as 'X' */
-    border: 10px solid red; /* Thickness and color of the circle */
+    border: 10px solid black; /* Thickness and color of the circle */
     border-radius: 50%; /* Makes it a circle */
-    position: absolute;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
 }
+
+.grid.o::before,
+.board.o .grid:not(.x):not(.o):hover::after {
+    content: '';
+    width: 70%; /* Same size as 'X' */
+    height: 70%; /* Same size as 'X' */
+    border-radius: 50%; /* Makes it a circle */
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
 
 /*button styling*/
 
@@ -102,18 +154,43 @@
     cursor: pointer;
 }
 
+
+.winning-message {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.85);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    font-size: 3rem;
+
+}
+
+.winning-message-text {
+    display: flex; 
+    flex-direction: column; 
+    align-items: center; 
+    text-align: center; 
+}
+
+
 #resetButton {
     margin-top: 25px;
     padding: 10px 20px;
-    font-size: 1rem;
-    background-color: orange;
+    font-size: 2rem;
+    background-color: lightgrey;
     color: black;
     border: none;
     border-radius: 5px;
     cursor: pointer;
 }
 
-#message {
-    font-size: 1.5rem;
-    font-weight: bold;
+#resetButton:hover {
+    background-color: black;
+    color: white;
+    border-color: white;
 }
