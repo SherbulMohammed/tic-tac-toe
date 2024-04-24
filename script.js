@@ -13,10 +13,13 @@ const WINNING_COMBINATIIONS = [
 const gridElements = document.querySelectorAll('[data-grid]')
 const board = document.getElementById('board')
 const winningMessageElement = document.getElementById('winningMessage')
+const resetButton = document.getElementById('resetButton')
 const winningMessageTextElement = document.querySelector('[data-winning-message-text]')
 let oTurn
 
 startGame()
+
+resetButton.addEventListener('click', startGame)
 
 function startGame() {
     oTurn = false
@@ -24,6 +27,7 @@ function startGame() {
         grid.addEventListener('click', handleClick, { once: true })
     })
     setboardHoverClass()
+    winningMessageElement.classList.remove('show')
 }
 
 
@@ -33,23 +37,29 @@ function handleClick(e) {
     placeMark(grid, currentClass)
     if (checkWin(currentClass)) {
         endGame(false)
-
+    } else if (isDraw()) {
+        endGame(true)
+    } else {
+        swapTurns()
+    setboardHoverClass()
+    }
     }
 
-    // Check for Win
-    // Check for Draw
-    // Switch Turns
-    swapTurns()
-    setboardHoverClass()
-}
 
-function endGame(isDraw) {
-    if (isDraw) {
-
+function endGame(draw) {
+    if (draw) {
+    winningMessageTextElement.innerText = 'Ooo its a Draw!'
     } else {
         winningMessageTextElement.innerText = `${oTurn ? "Player O" : "Player X"} Wins!`;
     }
     winningMessageElement.classList.add('show');
+}
+
+function isDraw() {
+    return [...gridElements].every(grid => {
+    return grid.classList.contains(X_CLASS) ||
+    grid.classList.contains(O_CLASS)
+    })
 }
 
 
