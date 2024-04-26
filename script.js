@@ -24,7 +24,10 @@ resetButton.addEventListener('click', startGame)
 function startGame() {
     oTurn = false
     gridElements.forEach(grid => {
-        grid.addEventListener('click', handleClick, { once: true })
+    grid.classList.remove(X_CLASS)
+    grid.classList.remove(O_CLASS)
+    grid.removeEventListener('click', handleClick               )
+    grid.addEventListener('click', handleClick, { once: true })
     })
     setboardHoverClass()
     winningMessageElement.classList.remove('show')

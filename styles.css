@@ -143,26 +143,14 @@
 
 /*button styling*/
 
-#startButton {
-    margin-top: 25px;
-    padding: 10px 20px;
-    font-size: 1rem;
-    background-color: #4CAF50;
-    color: black;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-}
-
-
 .winning-message {
+    display: none;
     position: fixed;
     top: 0;
     left: 0;
     right: 0;
     bottom: 0;
     background-color: rgba(0, 0, 0, 0.85);
-    display: flex;
     justify-content: center;
     align-items: center;
     color: white;
@@ -193,4 +181,8 @@
     background-color: black;
     color: white;
     border-color: white;
+}
+
+.winning-message.show {
+    display: flex;
 }
