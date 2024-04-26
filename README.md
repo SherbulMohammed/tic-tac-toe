@@ -1,16 +1,16 @@
-This project is a simple implementation of the classic game.
+This project is a simple implementation of the classic game of Tic-Tac-Toe. It provides a straightforward and engaging experience for two players.
 
 [Click here to see a preview](https://sherbulmohammed.github.io/tic-tac-toe/)
 
-Features
+### Features
 - Clickable grid to mark icons (X's and O's)
 - Clean and user-friendly interface
 - Displays winning message at the end of the game
 
-Technologies Used:
-HTML
-CSS
-JavaScript
+### Technologies Used:
+- HTML
+- CSS
+- JavaScript
 
 This is a learning project part of the Odin Project - JavaScript Course.
 
